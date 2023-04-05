@@ -1,9 +1,11 @@
 import { Link, Route, Routes } from 'react-router-dom';
+import Button from 'app1/Button';
 
 function Page1() {
   return (
     <div>
       <h1>Shell Page 1</h1>
+      <Button />
       <nav>
         <ul>
           <li>

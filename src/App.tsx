@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import './App.css';
-import Button from 'app1/Button';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import NavBar from 'nav/NavBar';
+import Page1 from './Page1';
+import App1Page from 'app1/Page';
 
 // const Button = React.lazy(() => import('app1/Button'));
 
@@ -11,10 +11,13 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Shell app</h1>
-      <Button />
       <NavBar />
       <hr />
-      <Outlet />
+
+      <Routes>
+        <Route path="/page1/*" element={<Page1 />} />
+        <Route path="/app1/*" element={<App1Page />} />
+      </Routes>
     </div>
   );
 };

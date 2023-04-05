@@ -31,14 +31,8 @@ import Page1 from './Page1';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="page1/*" element={<Page1 />} />
-          <Route path="app1/*" element={<App1Page />} />
-        </Route>
-      </Routes>
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );
