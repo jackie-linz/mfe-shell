@@ -11,7 +11,7 @@ export default defineConfig({
       remotes: {
         app1: 'http://localhost:5001/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
   build: {
