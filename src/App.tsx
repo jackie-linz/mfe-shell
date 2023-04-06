@@ -1,23 +1,32 @@
 import './App.css';
 import React from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
-import NavBar from 'nav/NavBar';
 import Page1 from './Page1';
-import App1Page from 'app1/Page';
-
-// const Button = React.lazy(() => import('app1/Button'));
+const NavBar = React.lazy(() => import('nav/NavBar'));
+const App1Page = React.lazy(() => import('app1/Page'));
+const CraButton = React.lazy(() => import('cra/Button'));
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Shell app</h1>
-      <NavBar />
-      <hr />
+      <React.Suspense fallback={<>...</>}>
+        <NavBar />
+      </React.Suspense>
 
       <Routes>
         <Route path="/page1/*" element={<Page1 />} />
-        <Route path="/app1/*" element={<App1Page />} />
+        <Route
+          path="/app1/*"
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <App1Page />
+            </React.Suspense>
+          }
+        />
       </Routes>
+
+      <hr />
+      <CraButton />
     </div>
   );
 };
